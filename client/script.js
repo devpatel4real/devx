@@ -80,7 +80,7 @@ const handleSubmit = async e => {
   const response = await fetch('https://devx.onrender.com/', {
     method: 'POST',
     headers: {
-      'content-type': 'application/json'
+      'Content-type': 'application/json'
     },
     body: JSON.stringify({
       prompt: data.get('prompt'),
