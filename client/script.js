@@ -59,7 +59,7 @@ function chatStripe (isAi, value, uniqueId){
   )
 }
 
-const handleSubmit = async e => {
+const handleSubmit = async (e) => {
   e.preventDefault();
 
   const data = new FormData(form);
@@ -69,7 +69,7 @@ const handleSubmit = async e => {
   form.reset();
 
   const uniqueId = generateUniqueId()
-  chatContainer.innerHTML += chatStripe(true, "", uniqueId);
+  chatContainer.innerHTML += chatStripe(true, " ", uniqueId);
 
   chatContainer.scrollTop = chatContainer.scrollHeight;
 
@@ -80,7 +80,7 @@ const handleSubmit = async e => {
   const response = await fetch('https://devx.onrender.com/', {
     method: 'POST',
     headers: {
-      'Content-type': 'application/json'
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
       prompt: data.get('prompt'),
@@ -88,7 +88,7 @@ const handleSubmit = async e => {
   })
 
   clearInterval(loadInterval);
-  messageDiv.innerHTML = "";
+  messageDiv.innerHTML = " ";
 
   if(response.ok) {
     const data = await response.json();
